@@ -1,6 +1,6 @@
 > This is a writeup for Brainpan on Tryhackme https://tryhackme.com/room/brainpan
 
-### Initial Enumeration
+# Initial Enumeration
 
 
 To start enumerating this system, I used threader3000 to perform a port scan followed by an nmap scan. I've found this to be useful tool to cut down on nmap scan times. It is a multi-threaded python port scanner which then gives you an option to run an nmap scan based on the findings. Here is the repo for threader3000 https://github.com/dievus/threader3000.
@@ -148,7 +148,7 @@ Accessing this port on the VM through netcat allows us to interact with the appl
 ![](4.png)
 
 
-### Buffer Overflow
+# Buffer Overflow
 
 
 
@@ -392,7 +392,7 @@ uid=1002(puck) gid=1002(puck) groups=1002(puck)
 ```
 
 
-### User Shell
+# User Shell
 
 Early on in the user enumeration stage I found a method for priv esc. By running sudo -l it shows as the puck user, we can run a binary in anansi home directory with sudo privileges. 
 
