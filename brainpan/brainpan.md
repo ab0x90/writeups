@@ -97,12 +97,12 @@ Press enter to quit...
 Based on this nmap scan, there are two open ports. It appears that port 9999 is the brain pan application. Viewing this page in a browser reveals the application, although we are unable to actually interact with it through the browser. 
 
 
-![](img/1.png)
+![](1.png)
 
 
 I attemped to run gobuster here, but it did not yield any reseults. Moving onto port 10000, viewing this page in the browser reveals some static page with safe coding tips.
 
-![](img/2.png)
+![](2.png)
 
 The page itself didn't reveal anything interesting. Running gobuster on port 10000 however did provide us with a result. 
 
@@ -140,13 +140,13 @@ brainpan.exe: PE32 executable (console) Intel 80386 (stripped to external PDB), 
 Since this is a Windows executable and I want to test this locally, i transferred the file to my Windows VM with Immunity Debugger on it. After transferring the file and executing it on the Windows VM, a cmd prompt shows the application is listening on port 9999.
 
 
-![](img/3.png)
+![](3.png)
 
 
 Accessing this port on the VM through netcat allows us to interact with the application.
 
 
-![](img/4.png)
+![](4.png)
 
 
 ### Buffer Overflow
@@ -155,7 +155,7 @@ Accessing this port on the VM through netcat allows us to interact with the appl
 
 With the application running on the Windows VM, start immunity and attach the brainpan.exe process. To do this click on File > Attach and it will bring up the prompt shown below. From here select the process and click on Attach.
 
-![](img/5.png)
+![](5.png)
 
 
 Now the fuzzing script can be run against this to see if we can trigger a crash. This is the simple fuzzing script I use.
@@ -210,7 +210,7 @@ while True:
 
 Restart brainpan application and Immunity, then run the script. The EIP register shows a unique value of 35724134.
 
-![](img/6.png)
+![](6.png)
 
 msf-pattern_offset can be used to find this exact location. Which shows the offset at 524. Next we use a different script to build the final exploit.
 
@@ -252,13 +252,13 @@ print("Done!")
 Taking a quick look at the registers after running this shows EIP was overwritten with 42424242 (4 B's) and ESP was overwritten with the C's.
 
 
-![](img/7.png)
+![](7.png)
 
 
 The next step is to find all the bad characters that may cause the payload to fail. Using the mona module, I created a bytearray for bad characters and excluded “\x00”.
 
 
-![](img/8.png)
+![](8.png)
 
 
 Modification to the script includes adding in all possible bad characters. From the previous Immunity crashes, I know there is enough space in ESP to place all the bad characters. 
@@ -308,17 +308,17 @@ print("Done!")
 Again, using mona I compared the bytearray that was created with the bad characters we supplied in the script and it showed there were no bad characters, other than \x00. -a refers to the ESP address at the time of the crash.
 
 
-![](img/9.png)
+![](9.png)
 
 
 
 Using the mona modules commands, I listed the modules with brainpan.exe attached to immunity. Here it shows the module info and protections set as False.
 
-![](img/10.png)
+![](10.png)
 
 Then I used the mona find command to find a JMP ESP address we could use to drop in EIP register. Mona found one match in brainpan.exe at 0x311712f3.
 
-![](img/11.png)
+![](11.png)
 
 Because this is a windows executable running on a linux machine, I will use msfvenom to generate the linux/x86 payload:
 
