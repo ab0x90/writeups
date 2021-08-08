@@ -393,7 +393,7 @@ uid=1002(puck) gid=1002(puck) groups=1002(puck)
 ```
 
 
-User Shell
+### User Shell
 
 Early on in the user enumeration stage I found a method for priv esc. By running sudo -l it shows as the puck user, we can run a binary in anansi home directory with sudo privileges. 
 
