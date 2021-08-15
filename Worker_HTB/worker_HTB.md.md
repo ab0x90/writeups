@@ -172,7 +172,7 @@ Looking at the files I noticed this subdomain, so I added this to /etc/hosts
 dimension.worker.htb/index.html
 ```
 
-![[Worker_HTB/1.png]]
+![[1.png]]
 
 moving back to the revisions. Nothing special in the files of revision 1, checking revision 2 however shows deploy.ps1 was added. Taking a look at that it shows a username and password.
 
@@ -210,22 +210,22 @@ You can find the latest version at: http://devops.worker.htb
 
 Visiting http://devops.worker.htb, after adding it to /etc/hosts prompted me with a login, which I entered the credentials found earlier. 
 
-![[Worker_HTB/2.png]]
+![[2.png]]
 
 This leads us to an Azure DevOps page. 
 
-![[Worker_HTB/3.png]]
+![[3.png]]
 
 After messing around on the site, I was able to create to create a new branch by going into the SmartHotel360 project > Repos then click on "master" at the top of the page to create a new branch. 
 
-![[Worker_HTB/4.png]]
+![[4.png]]
 
 name the branch whatever you want
-![[Worker_HTB/5.png]]
+![[5.png]]
 
 Right click on Spectral, you should be within the new branch, and click on upload file.
 
-![[Worker_HTB/6.png]]
+![[6.png]]
 
 Create payload with msfvenom
 ```sh
@@ -241,27 +241,27 @@ Saved as: test.aspx
 
 Browse to the file, select the payload just created and then click on commit.
 
-![[Worker_HTB/7.png]]
+![[7.png]]
 
 
 Now that the .aspx file has been added to the branch, I needed to go to pipelines and queue the build with the branch just created. This took me a little to figure out, as just completing a pull request did not upload the payload. Navigate to Pipelines, select the correct repository and click on Queue in the upper right hand corner, shown in the image below. The user currently is able to queue a build, but not create a new build.
 
-![[Worker_HTB/8.png]]
+![[8.png]]
 
 Select the correct branch that was created, and click on queue at the bottom.
 
-![[Worker_HTB/9.png]]
+![[9.png]]
 
 
 
 Within the pipeline section of the devops site, I found this page that showed the target folder of the build (bottom right), note the w:\.
 
-![[Worker_HTB/10.png]]
+![[10.png]]
 
 
 adding another line to /etc/hosts (spectral.worker.htb) I was able to view the site.
 
-![[Worker_HTB/11.png]]
+![[11.png]]
 
 Before we visit the page containing the aspx payload, set up a listener with msfconsole
 
