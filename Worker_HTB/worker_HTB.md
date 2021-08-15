@@ -221,6 +221,7 @@ After messing around on the site, I was able to create to create a new branch by
 ![](4.png)
 
 name the branch whatever you want
+
 ![](5.png)
 
 Right click on Spectral, you should be within the new branch, and click on upload file.
