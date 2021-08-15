@@ -172,7 +172,7 @@ Looking at the files I noticed this subdomain, so I added this to /etc/hosts
 dimension.worker.htb/index.html
 ```
 
-![[Worker_HTB/1.png]]
+![](1.png)
 
 moving back to the revisions. Nothing special in the files of revision 1, checking revision 2 however shows deploy.ps1 was added. Taking a look at that it shows a username and password.
 
@@ -210,22 +210,22 @@ You can find the latest version at: http://devops.worker.htb
 
 Visiting http://devops.worker.htb, after adding it to /etc/hosts prompted me with a login, which I entered the credentials found earlier. 
 
-![[Worker_HTB/2.png]]
+![](2.png)
 
 This leads us to an Azure DevOps page. 
 
-![[Worker_HTB/3.png]]
+![](3.png)
 
 After messing around on the site, I was able to create to create a new branch by going into the SmartHotel360 project > Repos then click on "master" at the top of the page to create a new branch. 
 
-![[Worker_HTB/4.png]]
+![](4.png)
 
 name the branch whatever you want
-![[Worker_HTB/5.png]]
+![](5.png)
 
 Right click on Spectral, you should be within the new branch, and click on upload file.
 
-![[Worker_HTB/6.png]]
+![](6.png)
 
 Create payload with msfvenom
 ```sh
@@ -241,27 +241,27 @@ Saved as: test.aspx
 
 Browse to the file, select the payload just created and then click on commit.
 
-![[Worker_HTB/7.png]]
+![](7.png)
 
 
 Now that the .aspx file has been added to the branch, I needed to go to pipelines and queue the build with the branch just created. This took me a little to figure out, as just completing a pull request did not upload the payload. Navigate to Pipelines, select the correct repository and click on Queue in the upper right hand corner, shown in the image below. The user currently is able to queue a build, but not create a new build.
 
-![[Worker_HTB/8.png]]
+![](8.png)
 
 Select the correct branch that was created, and click on queue at the bottom.
 
-![[Worker_HTB/9.png]]
+![](9.png)
 
 
 
 Within the pipeline section of the devops site, I found this page that showed the target folder of the build (bottom right), note the w:\.
 
-![[Worker_HTB/10.png]]
+![](10.png)
 
 
 adding another line to /etc/hosts (spectral.worker.htb) I was able to view the site.
 
-![[Worker_HTB/11.png]]
+![](11.png)
 
 Before we visit the page containing the aspx payload, set up a listener with msfconsole
 
@@ -280,7 +280,7 @@ msf6 exploit(multi/handler) > run
 
 When I visit the page we uplaoded with the payload, I get a reverse shell in meterpreter
 
-![[12.png]]
+![](12.png)
 
 # IIS SHELL
 
@@ -373,23 +373,23 @@ Ran Winpeas again as robisl user, did not find anything new. After looking aroun
 # Getting Root Shell
 
 Eventually I tried to log into the Azure DevOps page with robisl's credentials. This allowed access to a different repo, PartsUnlimited. 
-![[15.png]]
+![](15.png)
 
 I attempted to do a similar method as before, create a new branch and upload an aspx shell. But I was unable to perform the same steps as before, I looked into creating a new build, which the robisl user is allowed to do. I selected Pipelines from the left hand menu, then was brought to the page shown below.
 
-![[17.png]]
+![](17.png)
 
 I faced two issues in this next section with trying to get the build to work. First was choosing the correct pipeline, I tried a couple of the ASP.NET ones but received errors. Eventually I tried the "Starter Pipeline" at the bottom of this list, which worked. 
-![[20.png]]
+![](20.png)
 
 The second issue is I was prompted with this error when trying to build, the pool name "Default" was not valid. [This article](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/pools-queues?view=azure-devops&tabs=yaml%2Cbrowser) showed me where to find the pool names. 
-![[18.png]]
+![](18.png)
 
 After selecting the pipeline, chaning the default pool and adding a "whoami" to check if I can execute code here, I ran the build. 
-![[19.png]]
+![](19.png)
 
 After running the build, and looking through the logs for the multi line script, it shows the results of whoami, not only can I execute code via this build script, but it is executed as NT AUTHORITY\SYSTEM
-![[16.png]]
+![](16.png)
 
 I had uploaded nc.exe earlier on the system when I was in the IIS shell
 ```sh
@@ -401,10 +401,10 @@ CertUtil: -URLCache command completed successfully.
 
 Since I can execute commands as SYSTEM here, I can use nc.exe to get a reverse shell back to my kali. The image below shows the final build script being executed. 
 
-![[final shell.png]]
+![](final shell.png)
 
 When the multi line script executes, it sends back a SYSTEM shell.
-![[21.png]]
+![](21.png)
 
 ```sh
 W:\agents\agent11\_work\8\s>
