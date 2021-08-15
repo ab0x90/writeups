@@ -401,7 +401,7 @@ CertUtil: -URLCache command completed successfully.
 
 Since I can execute commands as SYSTEM here, I can use nc.exe to get a reverse shell back to my kali. The image below shows the final build script being executed. 
 
-![](final shell.png)
+![](final.png)
 
 When the multi line script executes, it sends back a SYSTEM shell.
 ![](21.png)
