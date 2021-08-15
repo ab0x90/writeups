@@ -174,7 +174,7 @@ dimension.worker.htb/index.html
 
 ![](1.png)
 
-moving back to the revisions. Nothing special in the files of revision 1, checking revision 2 however shows deploy.ps1 was added. Taking a look at that it shows a username and password.
+Took a quick look at the page, but I wanted to finish lookin at the revisions. Moving back to the revisions, Nothing special in the files of revision 1, checking revision 2 however shows deploy.ps1 was added. Taking a look at that it shows a username and password.
 
 ```sh
 ┌──(kali㉿kali)-[~/boxes/htb/worker]
