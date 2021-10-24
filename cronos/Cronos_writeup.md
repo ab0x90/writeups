@@ -74,7 +74,7 @@ After bypassing the login, I am given access to some Net Tool application. Which
 
 ![](3.png)
 
-I sent this over to Burpsuite to make it easier, and in the above image it shows that by adding ";whoami" to the password field it executes that command and displayed the results in the response as "www-data".
+I sent this over to Burpsuite to make it easier, and in the above image it shows that by adding ";whoami" to the host field it executes that command and displayed the results in the response as "www-data".
 
 ## www-data Shell
 
