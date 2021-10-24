@@ -286,7 +286,11 @@ The first vulnerability on this box was that zone transfers were allowed and not
 Mitigation of this vulnerability is important, as restricting zone transfers can aid in limiting the attack surface of an organization by keeping hostnames private. One way to do this is to restrict access to zone transfers to only trusted IP addresses. This can be done in the server config or also through the firewall.  Another method is to use transaction signatures for zone transfers. 
 
 For further information see:
+
+
 https://beaglesecurity.com/blog/vulnerability/dns-zone-transfer.html
+
+
 https://www.slashroot.in/secure-zone-transfer-bind-using-tsigtransaction-signatures
 
 ## <div align="center">SQL Injection</div>
@@ -297,6 +301,8 @@ In the admin web application, the login prompt was vulnerable to SQL injection. 
 One form of mitigation is to change the code for the login page to properly sanitize user input and contain a list of bad characters to check against. This would prevent these characters from being passed into the SQL query. Another way is to use parameterized statements which help ensure that inputs passed into a statement are treated in a safe way. 
 
 For further information see:
+
+
 https://www.hacksplaining.com/prevention/sql-injection
 
 
