@@ -287,9 +287,7 @@ Mitigation of this vulnerability is important, as restricting zone transfers can
 
 For further information see:
 
-
 https://beaglesecurity.com/blog/vulnerability/dns-zone-transfer.html
-
 
 https://www.slashroot.in/secure-zone-transfer-bind-using-tsigtransaction-signatures
 
@@ -301,7 +299,6 @@ In the admin web application, the login prompt was vulnerable to SQL injection. 
 One form of mitigation is to change the code for the login page to properly sanitize user input and contain a list of bad characters to check against. This would prevent these characters from being passed into the SQL query. Another way is to use parameterized statements which help ensure that inputs passed into a statement are treated in a safe way. 
 
 For further information see:
-
 
 https://www.hacksplaining.com/prevention/sql-injection
 
