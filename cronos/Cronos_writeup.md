@@ -313,7 +313,7 @@ The code for this application should be reviewed and changed to sanitize user in
 
 ## <div align="center">Scheduled task with root permissions</div>
 #### Vulnerability Explained
-Cron jobs are very to schedule tasks to run periodically on a linux system. However, when not properly configured they can lead to a privilege escalation route, as it did on this system. Ths issue is that root is executing a script that www-data has read/write access to. In the case an attacker gains access to the www-data user the /var/www/laravel/artisan file could be overwritten with a php reverse shell to gain root permissions on the system. 
+Cron jobs are a way to schedule tasks to run periodically on a linux system. However, when not properly configured they can lead to a privilege escalation route, as it did on this system. Ths issue is that root is executing a script that www-data has read/write access to. In the case an attacker gains access to the www-data user the /var/www/laravel/artisan file could be overwritten with a php reverse shell to gain root permissions on the system. 
 
 #### Mitigation
 The cron job should be set up to run as the www-data user and permissions to execute the file should be granted, instead of running the job as the root user. If it is necessary that the root user execute the cron job, than write permissions should be removed from /var/www/laravel/artisan for all other users.
