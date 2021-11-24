@@ -1,19 +1,3 @@
----
-title: "Traverxec Writeup"
-author: ["HackTheBox"]
-date: "2021-11-24"
-subject: "Markdown"
-keywords: [Markdown, Example]
-lang: "en"
-titlepage: true
-titlepage-color: "1E90FF"
-titlepage-text-color: "FFFAFA"
-titlepage-rule-color: "FFFAFA"
-titlepage-rule-height: 2
-book: true
-classoption: oneside
-code-block-font-size: \scriptsize
----
 # Traverxec Writeup
 
 ## Information Gathering
