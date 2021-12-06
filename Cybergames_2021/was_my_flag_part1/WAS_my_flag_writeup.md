@@ -22,6 +22,8 @@ Here is an example of the output I was getting from wasm-decompile.
 
 I eventually stumbled across another program called Jeb. I downloaded and installed the demo version. Using Jeb I was able to decompile the checkFlag function in the wasm file to something I could actually read. Below shows the initial screen after loading the flagco.wasm file into Jeb.
 
+https://www.pnfsoftware.com/jeb/demo
+
 
 ![](5.png)
 
