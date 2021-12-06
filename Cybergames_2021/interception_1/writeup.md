@@ -1,3 +1,6 @@
+# Interception 1
+
+
 For this challenge, we are put into a simple network environment with 3 workstations connected by a switch. Getting the flag for this challenge involves poisoning the ARP table on the target system in order to trick the system into sending us the flag, instead of sending it to 192.168.0.2.
 
 This challenge gives us ssh command to use to gain access to the challenge system. The challenge description also states:
