@@ -77,11 +77,11 @@ Browsing to 127.0.0.1 in Chrome I had a fully functional site I could test local
 ![](8.png)
 
 
-Hit F12 to bring up the devtools. This windows shows the 3 files and actually displays the wasm file, and here we can see the $checkFlag function. Selecting any bytecode position will set a breakpoint.
+Hit F12 to bring up the devtools. This windows shows the 3 files and actually displays the wasm file, and here we can see the $checkFlag function. Selecting any bytecode position will set a breakpoint. Then using the buttons within the red box, I can control the application.
 
 ![](9.png)
 
-By entering input into the webpage, the application hits our breakpoint and we can step through the application.
+By entering input into the webpage, the application hits the breakpoint and I can step through the application.
 
 ![](10.png)
 
