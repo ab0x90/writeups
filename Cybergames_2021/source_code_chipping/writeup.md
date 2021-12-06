@@ -18,7 +18,7 @@ I'm not familiar with nupgk files, so Google led me to this definition.
 >https://www.file-extension.info/format/nupkg
 
 
-Looking into the nupkg file, there was more folder and files. Eventually I came across Setup.exe/meta-activity-monitor-1.0.0-full.nupkg/lib/net45/resources/app.asar. In the app.asar file I found the flag. 
+Looking into the nupkg file, there were more folders and files. Eventually I came across Setup.exe/meta-activity-monitor-1.0.0-full.nupkg/lib/net45/resources/app.asar. In the app.asar file I found the flag. 
 
 ![](1.png)
 
