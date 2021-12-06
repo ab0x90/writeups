@@ -13,7 +13,7 @@ The first step I took was to open the pcap file and filter out HTTP traffic.
 ![](1.png)
 
 
-Following the TCP stream revealed this communication, I had actually seen this exact type of communication on another pcap file containing C2 traffic. Here it doesn't look like any active commands were being issued by the C2, whereas on the other challenge under the '// Hello World' was encrypted data. 
+Following the TCP stream revealed this communication, I had actually seen this exact type of communication on another pcap file containing C2 traffic. Here it doesn't look like any active commands were being issued by the C2, whereas on the other challenge under the '// Hello World' was followed by encrypted data. 
 
 ![](2.png)
 
