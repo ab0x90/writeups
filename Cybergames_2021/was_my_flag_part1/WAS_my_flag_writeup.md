@@ -50,7 +50,7 @@ MetaCTF{sauc3_expr3s51on5}
 
 # Beyond the Challenge
 
-During this challenge I found out that Chrome inspector could be used as a debugger to actually step through the application.
+During this challenge I found out that Chrome devtools could be used as a debugger to actually step through the application.
 
 I had downloaded all the files, and started a webserver using python3.
 
