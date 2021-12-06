@@ -70,7 +70,7 @@ kali@kali-[~/boxes/ctfs/cybergames/was_my_flag]$python3 -m http.server 80
 Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...
 ```
 
-Browsing to 127.0.0.1 in Chrome I had a fully function site I could test locally.
+Browsing to 127.0.0.1 in Chrome I had a fully functional site I could test locally.
 
 ![](8.png)
 
