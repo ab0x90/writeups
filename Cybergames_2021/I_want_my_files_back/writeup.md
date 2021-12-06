@@ -1,3 +1,5 @@
+# I Want My Files Back
+
 This was a fun challenge, they gave us an encoded file. I had to figure out what kind of ransomware the file was encrypted with and figure out if there was a way to decode it. 
 
 Google searching eventually led me to this page. 
