@@ -1,6 +1,6 @@
 # System Information
 
-![](HTB/irked/1.png)
+![](1.png)
 
 # System Enumeration
 I used threader3000 to do a port scan and then passed it to nmap.
