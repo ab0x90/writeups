@@ -394,7 +394,7 @@ And finally I get confirmation the printer has been added before the page redire
 
 ![](12.png)
 
-I tried running the script multiple times, something was going wrong with the http request in python, I was able to view the page being requested in the browser but through nc or the python script I would get a "400 Bad request" after failing with this multiple times, I moved on. This might not be the route to go. One thing I did not try earlier was the unknown SUID binary viewuser, which gave a different output than before.
+I tried running the script multiple times, something was going wrong with the http request in python, I was able to view the page being requested in the browser but through curl or the python script I would get a "400 Bad request" after failing with this multiple times, I moved on. This might not be the route to go. One thing I did not try earlier was the unknown SUID binary viewuser, which gave a different output than before.
 
 ```sh
 djmardov@irked:/home$ viewuser
