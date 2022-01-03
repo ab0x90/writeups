@@ -1,5 +1,7 @@
 # System Information
 
+![](13.png)
+
 # System Enumeration
 I used threader3000 to scan this system. 
 
