@@ -131,7 +131,7 @@ Resolve-DnsName -type A -DnsOnly end.windowsliveupdater.com -Server 147.182.172.
 
 ## Analyzing the Powershell
 
-I transferred the powershell script to my Windows VM so I could mess around with it. I am no expert in powershell, but I really enjoy the powershell challenges as I find it generally easier to debug and make sense of. The top of the script contains the functions for encrypting, decrypting and creating an AesManagedObject. The main part of the function is at the bottom.
+I transferred the powershell script to my Windows VM so I could mess around with it. I am no expert in powershell, but I really enjoy the powershell challenges as I find it generally easier to debug and make sense of. The top of the script contains the functions for encrypting, decrypting and creating an AesManagedObject. The main part of the script is at the bottom.
 
 ```powershell
 filter parts($query) { $t = $_; 0..[math]::floor($t.length / $query) | % { $t.substring($query * $_, [math]::min($query, $t.length - $query * $_)) }} 
